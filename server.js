@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", async (req, res) => {
+
   const message = req.body.message;
 
   if (!message) {
@@ -19,14 +20,14 @@ app.post("/chat", async (req, res) => {
     });
   }
 
-  // AI connection will be added here next.
   res.json({
-    reply: `Prince MNX received: ${message}`
+    reply: "Prince MNX received your message: " + message
   });
+
 });
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Prince MNX running on port ${PORT}`);
+  console.log("Prince MNX running on port " + PORT);
 });
