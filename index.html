@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince MNX AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #05070d;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #171b28;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #6c8cff;
+    }
+
+    .status {
+      font-size: 12px;
+      color: #7dffb2;
+      background: #102319;
+      padding: 7px 10px;
+      border-radius: 20px;
+    }
+
+    main {
+      max-width: 700px;
+      margin: auto;
+      padding: 35px 18px 120px;
+    }
+
+    .hero {
+      text-align: center;
+      margin: 35px 0;
+    }
+
+    .icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 20px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      background: linear-gradient(135deg, #536dfe, #8e5cff);
+      box-shadow: 0 0 35px #536dfe55;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #8d93a5;
+      font-size: 15px;
+    }
+
+    .chat {
+      margin-top: 30px;
+      min-height: 180px;
+      padding: 18px;
+      border: 1px solid #1b2030;
+      border-radius: 20px;
+      background: #0a0d15;
+    }
+
+    .welcome {
+      color: #aeb4c5;
+      line-height: 1.6;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 12px 14px;
+      border-radius: 15px;
+      line-height: 1.5;
+      max-width: 90%;
+    }
+
+    .user {
+      background: #536dfe;
+      margin-left: auto;
+    }
+
+    .bot {
+      background: #151a27;
+      color: #d9dce7;
+    }
+
+    .input-area {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: #05070df2;
+      border-top: 1px solid #171b28;
+    }
+
+    .input-box {
+      max-width: 700px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #252b3d;
+      border-radius: 15px;
+      outline: none;
+      background: #0d111b;
+      color: white;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #536dfe;
+    }
+
+    button {
+      border: none;
+      padding: 0 20px;
+      border-radius: 15px;
+      background: #536dfe;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(.96);
+    }
+
+    .test {
+      text-align: center;
+      margin-top: 20px;
+      color: #555c70;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">PRINCE <span>MNX</span></div>
+    <div class="status">● TEST MODE</div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="icon">✦</div>
+
+      <h1>What are you creating today?</h1>
+
+      <p class="subtitle">
+        Welcome to Prince MNX AI
+      </p>
+    </section>
+
+    <section class="chat" id="chat">
+      <div class="welcome">
+        👋 Hey! I'm Prince MNX.<br><br>
+        This is the first test version. Type something below and let's test the interface.
+      </div>
+    </section>
+
+    <div class="test">
+      Prince MNX AI • Test Version 1.0
+    </div>
+
+  </main>
+
+  <div class="input-area">
+    <div class="input-box">
+      <input
+        id="messageInput"
+        type="text"
+        placeholder="Ask Prince MNX anything..."
+        autocomplete="off"
+      >
+
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("messageInput");
+      const chat = document.getElementById("chat");
+
+      const message = input.value.trim();
+
+      if (!message) return;
+
+      const userMessage = document.createElement("div");
+      userMessage.className = "message user";
+      userMessage.textContent = message;
+
+      chat.appendChild(userMessage);
+
+      input.value = "";
+
+      setTimeout(() => {
+        const botMessage = document.createElement("div");
+        botMessage.className = "message bot";
+
+        botMessage.textContent =
+          "I'm Prince MNX 🧊. AI connection is not connected yet — this is Test Version 1. The interface is working!";
+
+        chat.appendChild(botMessage);
+
+        chat.scrollTop = chat.scrollHeight;
+      }, 500);
+    }
+
+    document
+      .getElementById("
